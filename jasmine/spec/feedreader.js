@@ -130,6 +130,7 @@ $(function() {
 
              let nfeed = document.querySelector(".feed").innerHTML
             expect(oFeed).not.toBe(nfeed)// to make sure the content of the feeds are changed
+            done();
          })
          
 
