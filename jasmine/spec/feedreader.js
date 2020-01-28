@@ -31,9 +31,10 @@ $(function() {
          * and that the URL is not empty.
          */
         it(' URL  is defined', function() {
+            //loops through each allfeed url
         for (const i of allFeeds) {
-            expect(i.url).toBeDefined()
-            expect(i.url.length).not.toBe(0);
+            expect(i.url).toBeDefined()//check if it define
+            expect(i.url.length).not.toBe(0);//check if it not empty 
         };
         });
         
@@ -42,9 +43,10 @@ $(function() {
          * and that the name is not empty.
          */
         it('  name is defined', function () {
+             //loops through each allfeed name
              for (const i of allFeeds) {
-                 expect(i.name).toBeDefined()
-                 expect(i.name.length).not.toBe(0);
+                 expect(i.name).toBeDefined() //check if it define
+                 expect(i.name.length).not.toBe(0); //check if it not empty 
              };
          });
     });
@@ -57,11 +59,12 @@ $(function() {
           * the CSS to determine how we're performing the
           * hiding/showing of the menu element.
           */
-        let body = $('body')[0]
-        let menue = $('.menu-icon-link')
+        let body = $('body')[0]//store the body 
+        let menue = $('.menu-icon-link')//store menue icon class
 
 
         it(' menu element is hidden bydefault ',function(){
+            // check for the class menu-hidden in the body tag
             expect(body.classList.contains("menu-hidden")).toBe(true);
 
           })
@@ -72,10 +75,13 @@ $(function() {
           */
 
         it('hidden/show on click',function(){
+            // check for the class menu-hidden in the body tag
             expect(body.classList.contains("menu-hidden")).toBe(true);
-            menue.click();
+            menue.click();// whene menue icon clecked 
+            // check for the class menu-hidden is removed from the body tag
             expect(body.classList.contains("menu-hidden")).toBe(false);
             menue.click();
+              // check for the class menu-hidden is added back in the body tag
             expect(body.classList.contains("menu-hidden")).toBe(true);
          })
          
@@ -97,7 +103,7 @@ $(function() {
    */
         it(' loadFeed is called and complete whene it has one entry',function(done){
             let entry = document.querySelectorAll('.feed .entry');
-            expect(entry.length).toBeGreaterThan(0)
+            expect(entry.length).toBeGreaterThan(0)// check for at least one entry 
             done();
         })
              
@@ -123,8 +129,7 @@ $(function() {
          it('load new  content', function (done) {
 
              let nfeed = document.querySelector(".feed").innerHTML
-            expect(oFeed).not.toBe(nfeed)
-            done();
+            expect(oFeed).not.toBe(nfeed)// to make sure the content of the feeds are changed
          })
          
 
